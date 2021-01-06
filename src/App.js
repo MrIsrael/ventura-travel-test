@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 
 // Provider from context
-import { TestProvider } from './context/Vstate'
+import { TestProvider } from './context/TestState'
 
 // Page components
 import Home from './components/pages/Home'
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <TestProvider>
 
-        <div>
+        <div className='default-margin'>
           {flag === 0 && <Home changeScreen = {changeScreen} />}
           {flag === 1 && <TripsList changeScreen = {changeScreen} />}
         </div>
