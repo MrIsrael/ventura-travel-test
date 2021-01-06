@@ -1,24 +1,14 @@
-import logo from './logo.svg';
+import React, { Fragment } from 'react'
 import './App.css';
+
+import { connectToAPI } from 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <h1>Travel list</h1>
+      <button className='s-button' ocnClick={ connectToAPI() }>Get data</button>
+    </Fragment>
   );
 }
 
