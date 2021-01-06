@@ -1,15 +1,34 @@
-import React, { Fragment } from 'react'
-import './App.css';
+// Node modules
+import React, { useState } from 'react'
 
-import { connectToAPI } from 
+// Provider from context
+import { TestProvider } from './context/Vstate'
 
-function App() {
+// Page components
+import Home from './components/pages/Home'
+import TripsList from './components/pages/TripsList'
+
+// Styles
+import './App.scss'
+
+const App = () => {
+  const [flag, setFlag] = useState(0)
+  // flag = 0     --> Home
+  // flag = 1     --> Show data brought back from API request
+
+  const changeScreen = (val) => { setFlag(val) }
+  console.log('Active screen: ' + flag)
+
   return (
-    <Fragment>
-      <h1>Travel list</h1>
-      <button className='s-button' ocnClick={ connectToAPI() }>Get data</button>
-    </Fragment>
-  );
+    <TestProvider>
+
+        <div>
+          {flag === 0 && <Home changeScreen = {changeScreen} />}
+          {flag === 1 && <TripsList changeScreen = {changeScreen} />}
+        </div>
+
+    </TestProvider>
+  )
 }
 
-export default App;
+export default App
